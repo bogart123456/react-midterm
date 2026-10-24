@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { add } from "./calculator";
+import { add, subtract } from "./calculator";
+
 export default function App() {
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
   const [result, setResult] = useState(null);
+
   return (
     <main style={{ padding: "2rem", fontFamily: "Arial" }}>
       <h1>Midterm Calculator</h1>
-      <p>Student: YOUR NAME</p>
-      <p>Application Version: 1.0</p>
+      <p>Student: Alexander Jade Francisco</p>
+      <p>Application Version: 2.0</p>
       <div>
         <label>
           First number:
@@ -31,6 +33,12 @@ export default function App() {
       </div>
       <button onClick={() => setResult(add(first, second))}>
         Add Numbers
+      </button>
+      <button
+        style={{ marginLeft: "0.5rem" }}
+        onClick={() => setResult(subtract(first, second))}
+      >
+        Subtract Numbers
       </button>
       {result !== null && <h2>Result: {result}</h2>}
     </main>
